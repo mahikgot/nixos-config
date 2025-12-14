@@ -137,9 +137,18 @@ in
   home-manager.users.marky = { pkgs, ...}: {
     programs.wezterm.enable = true;
     programs.wezterm.enableZshIntegration = true;
+
+    programs.git = {
+      enable = true;
+      settings = {
+        user = {
+	  name = "Mark Guiang";
+	  email = "mahikgot@gmail.com";
+	};
+      };
+    };
     home.packages = with pkgs; [
 	neovim
-	git
     ];
     home.stateVersion = "25.11";
   };
