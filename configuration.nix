@@ -80,8 +80,8 @@ in
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
    environment.systemPackages = with pkgs; [
-     pwvucontrol
      firefox
+     pulsemixer
    ];
 
   # Some programs need SUID wrappers, can be configured further or are
