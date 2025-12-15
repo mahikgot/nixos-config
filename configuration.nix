@@ -41,6 +41,7 @@
   # Enable the X11 windowing system.
   services.xserver = {
   	enable = true;
+	dpi = 144;
 	desktopManager = {
 		xterm.enable = false;
 	};
