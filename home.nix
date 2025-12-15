@@ -3,6 +3,7 @@
 	home.username = "marky";
 	home.homeDirectory = "/home/marky";
 	home.packages = with pkgs; [
+		polybarFull
 		neovim
 	];
 
@@ -25,5 +26,12 @@
 		source = ./config/i3;
 		recursive = true;
 	};
+	home.file.".config/polybar" = {
+		source = ./config/polybar;
+		recursive = true;
+	};
+
+
+
 	home.stateVersion = "25.11";
 }
