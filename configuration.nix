@@ -52,6 +52,15 @@
 		];
 	};
   };
+  services.libinput.enable = true;
+  services.libinput.touchpad.disableWhileTyping = true;
+  environment.etc."libinput/local-overrides.quirks".text = ''
+    [Internal Keyboard]
+    MatchName=Apple MTP keyboard
+    MatchUdevType=keyboard
+    AttrKeyboardIntegration=internal
+  '';
+
   services.displayManager.defaultSession = "none+i3";
   programs.i3lock.enable = true;
   # Configure keymap in X11
@@ -64,8 +73,6 @@
      enable = true;
      pulse.enable = true;
    };
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.libinput.enable = true;
   
 
   # List packages installed in system profile.
