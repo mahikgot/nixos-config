@@ -3,19 +3,12 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
 { config, lib, pkgs, ... }:
-let
-  home-manager = builtins.fetchTarball {
-    url = "https://github.com/nix-community/home-manager/archive/release-25.11.tar.gz";
-    sha256 = "02ly03p934ywps0rkwj251fszr6x00d9g7ikn9g7qx27xnrv3ka4";
-  };
-in
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ##MARK MAC   
       ./apple-silicon-support
-      (import "${home-manager}/nixos")
    ];
   #MARK MAC
   hardware.asahi.peripheralFirmwareDirectory = ./firmware;
@@ -74,7 +67,6 @@ in
    };
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
-
   
 
   # List packages installed in system profile.
@@ -133,24 +125,6 @@ in
     isNormalUser = true;
     extraGroups = ["wheel"];
     shell = pkgs.zsh;
-  };
-  home-manager.users.marky = { pkgs, ...}: {
-    programs.wezterm.enable = true;
-    programs.wezterm.enableZshIntegration = true;
-
-    programs.git = {
-      enable = true;
-      settings = {
-        user = {
-	  name = "Mark Guiang";
-	  email = "mahikgot@gmail.com";
-	};
-      };
-    };
-    home.packages = with pkgs; [
-	neovim
-    ];
-    home.stateVersion = "25.11";
   };
 
   nix = {
