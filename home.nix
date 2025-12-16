@@ -44,9 +44,8 @@
 		enable = true;
 		enableZshIntegration = true;
 	};
-	home.file.".config/wezterm" = {
-		source = ./config/wezterm;
-		recursive = true;
+	home.file.".wezterm.lua" = {
+		source = ./config/wezterm/.wezterm.lua;
 	};
 	home.file.".config/i3" = {
 		source = ./config/i3;
