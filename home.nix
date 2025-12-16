@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
 	home.username = "marky";
 	home.homeDirectory = "/home/marky";
@@ -16,6 +16,28 @@
 				email = "mahikgot@gmail.com";
 			};
 		};
+	};
+	programs.zsh = {
+		enable = true;
+		initContent = lib.mkOrder 1500 "bindkey '^ ' autosuggest-accept";
+		antidote = {
+			enable = true;
+			plugins = [
+				"zsh-users/zsh-autosuggestions"
+				"zsh-users/zsh-syntax-highlighting"
+			];
+		};
+	};
+	programs.zoxide = {
+		enable = true;
+		enableZshIntegration = true;
+		options = [
+			"--cmd cd"
+		];
+	};
+	programs.fzf = {
+		enable = true;
+		enableZshIntegration = true;
 	};
 	
 	programs.wezterm = {
