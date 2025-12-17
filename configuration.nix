@@ -13,6 +13,7 @@
   #MARK MAC
   hardware.asahi.peripheralFirmwareDirectory = ./firmware;
 
+  hardware.bluetooth.enable = true;
   networking.wireless.iwd = {
   	enable = true;
 	settings.General.EnableNetworkConfiguration = true;
@@ -69,9 +70,14 @@
   services.xserver.xkb.options = "ctrl:swapcaps";
 
   # Enable sound.
+   security.rtkit.enable = true;
    services.pipewire = {
      enable = true;
+     alsa.enable = true;
+     alsa.support32Bit = true;
+     jack.enable = true;
      pulse.enable = true;
+     wireplumber.enable = true;
    };
   
 
@@ -80,6 +86,7 @@
    environment.systemPackages = with pkgs; [
      firefox
      pulsemixer
+     bluetui
    ];
 
   # Some programs need SUID wrappers, can be configured further or are
