@@ -1,0 +1,9 @@
+theme = "gruvbox"
+
+[editor]
+line-number = "relative"
+
+[editor.auto-save]
+after-delay.enable = true
+after-delay.timeout = 1000
+

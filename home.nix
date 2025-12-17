@@ -74,7 +74,10 @@
 		source = ./config/polybar;
 		recursive = true;
 	};
-
+	home.file.".config/helix" = {
+		source = ./config/helix;
+		recursive = true;
+	};
 
 
 	home.stateVersion = "25.11";
