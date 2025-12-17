@@ -44,6 +44,11 @@
 		enable = true;
 		enableZshIntegration = true;
 	};
+	programs.direnv = {
+		enable = true;
+		enableZshIntegration = true;
+		nix-direnv.enable = true;
+	};
 	home.file.".wezterm.lua" = {
 		source = ./config/wezterm/.wezterm.lua;
 	};
