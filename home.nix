@@ -56,6 +56,13 @@
 		enableZshIntegration = true;
 		nix-direnv.enable = true;
 	};
+	programs.eza = {
+		enable = true;
+		git = true;
+		enableZshIntegration = true;
+		colors = "auto";
+		icons = "auto";
+	};
 	home.file.".wezterm.lua" = {
 		source = ./config/wezterm/.wezterm.lua;
 	};
