@@ -185,3 +185,6 @@ client.unfocused        $darkgray $darkgray $lightgray $purple $darkgray
 client.urgent           $red $red $white $red $red
 
 hide_edge_borders smart
+
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
