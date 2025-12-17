@@ -6,6 +6,7 @@
 		xclip
 		polybarFull
 		neovim
+		ripgrep
 	];
 
 	programs.git = {
@@ -38,6 +39,12 @@
 	programs.fzf = {
 		enable = true;
 		enableZshIntegration = true;
+		fileWidgetCommand = "fd --type f";
+		changeDirWidgetCommand = "fd --type d";
+	};
+	programs.fd = {
+		enable = true;
+		hidden = true;
 	};
 	
 	programs.wezterm = {
