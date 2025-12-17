@@ -39,8 +39,8 @@
 	programs.fzf = {
 		enable = true;
 		enableZshIntegration = true;
-		fileWidgetCommand = "fd --type f";
-		changeDirWidgetCommand = "fd --type d";
+		fileWidgetCommand = "fd --type f -u";
+		changeDirWidgetCommand = "fd --type d -u";
 	};
 	programs.fd = {
 		enable = true;
