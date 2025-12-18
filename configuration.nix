@@ -12,6 +12,10 @@
    ];
   #MARK MAC
   hardware.asahi.peripheralFirmwareDirectory = ./firmware;
+  services.udev.extraRules = ''
+    KERNEL=="macsmc-battery", SUBSYSTEM=="power_supply", ATTR{charge_control_end_threshold}="80", ATTR{charge_control_start_threshold}="70"
+  '';
+  boot.kernelParams = [ "apple_dcp.show_notch=1" ];
 
   hardware.bluetooth.enable = true;
   networking.wireless.iwd = {
