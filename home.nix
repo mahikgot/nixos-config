@@ -7,6 +7,7 @@
 		polybarFull
 		neovim
 		ripgrep
+		taskwarrior3
 	];
 
 	programs.git = {
