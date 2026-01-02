@@ -31,7 +31,7 @@
           home-manager.useUserPackages = true;
           home-manager.users.marky = import ./home.nix;
         }
-      ]
+      ];
     }
   };
 } 
