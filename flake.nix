@@ -32,6 +32,6 @@
           home-manager.users.marky = import ./home.nix;
         }
       ];
-    }
+    };
   };
 } 
