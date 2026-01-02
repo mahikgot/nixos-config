@@ -3,7 +3,11 @@
 	home.username = "marky";
 	home.homeDirectory = "/home/marky";
 	home.packages = with pkgs; [
-		xclip
+		firefox
+    pulsemixer
+    bluetui
+    brightnessctl
+    xclip
 		polybarFull
 		neovim
 		ripgrep
