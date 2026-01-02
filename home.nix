@@ -8,6 +8,7 @@
 		neovim
 		ripgrep
 		taskwarrior3
+		evil-helix
 	];
 
 	programs.git = {

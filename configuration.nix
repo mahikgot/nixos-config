@@ -4,34 +4,7 @@
 
 { config, lib, pkgs, ... }:
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ##MARK MAC   
-      ./apple-silicon-support
-   ];
-  #MARK MAC
-  hardware.asahi.peripheralFirmwareDirectory = ./firmware;
-  services.udev.extraRules = ''
-    KERNEL=="macsmc-battery", SUBSYSTEM=="power_supply", ATTR{charge_control_end_threshold}="80", ATTR{charge_control_start_threshold}="70"
-  '';
-  boot.kernelParams = [ "apple_dcp.show_notch=1" ];
-
-  hardware.bluetooth.enable = true;
-  networking.wireless.iwd = {
-  	enable = true;
-	settings.General.EnableNetworkConfiguration = true;
-  };
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  networking.hostName = "markbook"; # Define your hostname.
-  # Configure network connections interactively with nmcli or nmtui.
-  networking.networkmanager.enable = true;
-  # Set your time zone.
-  time.timeZone = "Asia/Manila";
-
-  # Select internationalisation properties.
+   # Select internationalisation properties.
    i18n.defaultLocale = "en_US.UTF-8";
    console = {
      font = "ter-i32b";
@@ -57,14 +30,7 @@
 		];
 	};
   };
-  services.libinput.enable = true;
-  services.libinput.touchpad.disableWhileTyping = true;
-  environment.etc."libinput/local-overrides.quirks".text = ''
-    [Internal Keyboard]
-    MatchName=Apple MTP keyboard
-    MatchUdevType=keyboard
-    AttrKeyboardIntegration=internal
-  '';
+  
 
   services.displayManager.defaultSession = "none+i3";
   programs.i3lock.enable = true;
@@ -73,25 +39,12 @@
   services.xserver.xkb.variant= "colemak";
   services.xserver.xkb.options = "ctrl:swapcaps";
 
-  # Enable sound.
-   security.rtkit.enable = true;
-   services.pipewire = {
-     enable = true;
-     alsa.enable = true;
-     alsa.support32Bit = true;
-     jack.enable = true;
-     pulse.enable = true;
-     wireplumber.enable = true;
-   };
-  
-
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
    environment.systemPackages = with pkgs; [
      firefox
      pulsemixer
      bluetui
-     evil-helix
      brightnessctl
    ];
 
