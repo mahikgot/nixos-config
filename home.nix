@@ -13,6 +13,7 @@
 		ripgrep
 		taskwarrior3
 		evil-helix
+		unzip
 	];
 
 	programs.git = {
