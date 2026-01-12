@@ -14,6 +14,7 @@
 		taskwarrior3
 		evil-helix
 		unzip
+		bottom
 	];
 
 	programs.git = {
