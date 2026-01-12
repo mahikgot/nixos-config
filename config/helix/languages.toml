@@ -1,2 +1,8 @@
 [language-server.rust-analyzer.config]
 check.command = "clippy"
+[language-server.jdtls]
+command = "jdtls-wrapper"
+[language-server.jdtls.config]
+extendedClientCapabilities.classFileContentsSupport = true
+[language-server.jdtls.config.java.inlayHints]
+parameterNames.enabled = "all"
