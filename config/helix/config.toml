@@ -2,7 +2,6 @@ theme = "gruvbox"
 
 [editor]
 line-number = "relative"
-auto-format = true
 
 [editor.auto-save]
 after-delay.enable = true

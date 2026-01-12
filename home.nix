@@ -86,9 +86,6 @@
 		source = ./config/helix;
 		recursive = true;
 	};
-	home.sessionPath = [
-		"./config/helix/jdtls-wrapper"
-	];
 
 
 	home.stateVersion = "25.11";
