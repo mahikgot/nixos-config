@@ -1,5 +1,9 @@
 { config, pkgs, lib, ... }:
 {
+	imports = [
+		./modules/jdtls-wrapper.nix
+	];
+
 	home.username = "marky";
 	home.homeDirectory = "/home/marky";
 	home.packages = with pkgs; [
@@ -15,6 +19,7 @@
 		evil-helix
 		unzip
 		bottom
+		jdt-language-server
 	];
 
 	programs.git = {
