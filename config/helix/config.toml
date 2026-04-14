@@ -4,10 +4,11 @@ theme = "gruvbox"
 line-number = "relative"
 bufferline = "always"
 
+[keys.normal]
+"C-c" = ["keep_primary_selection", "collapse_selection"]
+
 [keys.insert]
-h = {n = ["normal_mode"]}
+"C-c" = "normal_mode"
 
-[editor.auto-save]
-after-delay.enable = true
-after-delay.timeout = 1000
-
+[keys.select]
+"C-c" = ["normal_mode", "keep_primary_selection", "collapse_selection"]
