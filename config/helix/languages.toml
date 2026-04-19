@@ -7,3 +7,14 @@ command = "jdtls-wrapper"
 extendedClientCapabilities.classFileContentsSupport = true
 [language-server.jdtls.config.java.inlayHints]
 parameterNames.enabled = "all"
+
+[language-server.metals]
+command = "metals"
+
+[[language]]
+name = "scala"
+scope = "source.scala"
+file-types = ["scala", "sc"]
+roots = ["build.sbt", "build.sc", "project", ".scala"]
+language-servers = ["metals"]
+auto-format = true

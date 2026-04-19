@@ -20,6 +20,10 @@
 		unzip
 		bottom
 		jdt-language-server
+		scala-cli
+		metals
+		scalafmt
+		sbt-with-scala-native
 	];
 
 	programs.git = {
