@@ -37,7 +37,21 @@
 	};
 	programs.zsh = {
 		enable = true;
-		initContent = lib.mkOrder 1500 "bindkey '^ ' autosuggest-accept";
+    initContent = lib.mkMerge [
+      # ---- BLOCK 1: Paths & High-Speed Manual Completion Setup ----
+      (lib.mkBefore ''
+        # 1. Filter out slow Windows mount directories from your command lookup path.
+        # This prevents autosuggestions from lagging when querying your C:\ drive.
+        PATH=$(echo "$PATH" | tr ':' '\n' | grep -v '/mnt/c/' | tr '\n' ':' | sed 's/:$//')
+      '')
+
+      # ---- BLOCK 2: Keybindings & Autosuggest Async Optimizations ----
+      (lib.mkOrder 1500 ''
+        bindkey '^ ' autosuggest-accept
+        typeset -g ZSH_AUTOSUGGEST_USE_ASYNC=1
+        typeset -g ZSH_AUTOSUGGEST_STRATEGY=(history)
+      '')
+    ];
 		antidote = {
 			enable = true;
 			plugins = [
