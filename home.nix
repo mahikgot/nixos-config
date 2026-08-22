@@ -109,7 +109,24 @@
 		source = ./config/helix;
 		recursive = true;
 	};
-
-
+	home.file.".local/bin/win32yank" = {
+	  text = ''
+	    #!/bin/sh
+	    WIN32YANK=$(echo /mnt/c/Users/*/AppData/Local/Microsoft/WinGet/Packages/equalsraf.win32yank_*/win32yank.exe)
+	    exec "$WIN32YANK" "$@"
+	  '';
+	  executable = true;
+	};
+	home.file.".local/bin/win32yank.exe" = {
+	  text = ''
+	    #!/bin/sh
+	    WIN32YANK=$(echo /mnt/c/Users/*/AppData/Local/Microsoft/WinGet/Packages/equalsraf.win32yank_*/win32yank.exe)
+	    exec "$WIN32YANK" "$@"
+	  '';
+	  executable = true;
+	};
+	home.sessionPath = [
+	  "$HOME/.local/bin"
+	];
 	home.stateVersion = "25.11";
 }
